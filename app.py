@@ -9,8 +9,9 @@ app.secret_key = "hello"
 
 wipo_file = pd.read_csv("fetched_wipo_all_final.csv")
 uspto_file = pd.read_csv("fetched_uspto_all_final.csv")
-wipo_list = fl_wipo['patent_number'].to_list()
-uspto_list = fl_uspto['patent_number'].to_list()
+wipo_list = wipo_file['patent_number'].to_list()
+uspto_list = uspto_file['patent_number'].to_list()
+
 @app.route('/',methods = ['POST','GET'])
 def index():
 	list = wipo_list + uspto_list
