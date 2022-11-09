@@ -3,6 +3,8 @@ from flask import render_template, url_for,redirect
 from flask import request
 from flask import session
 import pandas as pd
+import requests
+from Bio.Seq import Seq
 
 app = Flask(__name__)
 app.secret_key = "hello"
