@@ -1,0 +1,32 @@
+<html>
+<head>
+<title> result </title>
+<body>
+Selected Item: {{seq}}
+
+<table style="border: 1px solid black">
+    <tr style="border: 1px solid black">
+        {% for col in column_names %}
+        <th>{{col}}</th>
+        {% endfor %}
+    </tr>
+    {% for row in row_data %}
+<tr style="border: 1px solid black">
+    {% for col, row_ in zip(column_names, row) %}
+    
+    <td style="border: 1px solid black">{{row_}}</td>
+    
+    {% endfor %}
+</tr>
+{% endfor %}
+
+</table>
+
+</form>
+
+  </div>
+  </form>
+</div>
+    
+</body>
+</html>
