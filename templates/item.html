@@ -1,0 +1,18 @@
+<html>
+<head>
+<title> boom </title>
+
+<body>
+Selected Item: {{user}}
+<br>
+<form method = "post">
+<select name = "n2">
+{% for x in list_new %}
+<option style="color: #105583;" value= "{{x}}" SELECTED>{{x}}</option>"
+{% endfor %}
+</select>
+<button type = "submit"> Enter </button>
+</form>
+
+</body>
+</html>
