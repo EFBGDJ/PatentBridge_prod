@@ -2,14 +2,19 @@ from flask import Flask
 from flask import render_template, url_for,redirect
 from flask import request
 from flask import session
+import pandas as pd
 
 app = Flask(__name__)
 app.secret_key = "hello"
 
-
+wipo_file = pd.read_csv("fetched_wipo_all_final.csv")
+uspto_file = pd.read_csv("fetched_uspto_all_final.csv")
+wipo_list = fl_wipo['patent_number'].to_list()
+uspto_list = fl_uspto['patent_number'].to_list()
 @app.route('/',methods = ['POST','GET'])
 def index():
-	list = ['Drinks','Vegetables','Fruits']
+	list = wipo_list + uspto_list
+	#list = ['Drinks','Vegetables','Fruits']
 	if request.method == 'POST':
 		n = request.form['n1']
 		session['user_name'] = n
