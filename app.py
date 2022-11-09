@@ -186,6 +186,14 @@ def display():
     os.remove("blas_res5.csv") 
     return render_template('results.html', seq = it, column_names = df.columns.values,row_data = list(df.values.tolist()),zip = zip)
 
+
+@app.route("/download_sequence", methods= ['GET','POST'])
+def download_sequence():
+    if request.method == 'POST':
+        if request.form.get('action1') == 'Download Table':
+            df.to_csv('file_name.csv')
+    return 'Downloaded successfully'
+
 	
 	
 
