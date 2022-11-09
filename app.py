@@ -153,12 +153,13 @@ def name():
         it = request.form['n2']
         session['chosen'] = it
         return  redirect(url_for('display'))
-    seq_list = ['Choose all']
     n = session.get('user_name',None)
     if(n[0]=='W'):
         seq_list= wipo_file[wipo_file['patent_number']== n]['Protein'].to_list()
     else:
         seq_list=uspto_file[uspto_file['patent_number']==n]['Protein'].to_list()
+    seq_list.append("choose all")
+ 
     print(seq_list)
     return render_template('item.html',list_new = seq_list, user = n)
 
@@ -166,7 +167,25 @@ def name():
 @app.route('/display')
 def display():
 	it = session.get('chosen',None)
-	return it
+	sequence=[{"name":"test",
+               "text":it}
+                ]
+            print(sequence)
+            bid=run_vel_blast(sequence,token,algo="blastp",collection="IC_TOXIN-All",
+                      evalue=10, nhits=250, word_size=3)
+            print(bid)
+            res=get_result(bid,token,30)
+            print(res)
+            with open("blas_res5.csv","w") as file:
+                file.write(res.text)
+            res_file=pd.read_csv("blas_res5.csv", header=None) 
+            res_file.to_csv('blas_res5.csv', header=['qacc', 'sacc', 'pident', 'length', 'mismatch', 'gapopen', 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore'], index=False)
+            df= pd.read_csv("blas_res5.csv") 
+            os.remove('blas_res5.csv')
+        
+        return render_template('results.html', seq = it, column_names = df.columns.values,row_data = list(df.values.tolist()),zip = zip)
+
+	
 	
 
 if __name__ == '__main__':
