@@ -4,6 +4,7 @@ from flask import request
 from flask import session
 import pandas as pd
 import requests
+import json
 from Bio.Seq import Seq
 
 def get_token(client_id, client_secret):
