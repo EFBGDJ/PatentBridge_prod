@@ -58,7 +58,74 @@ def run_vel_blast(sequences, access_token, algo="blastn", collection="nr", evalu
     batch_id = Obj['blastExecutionBatchId']
     return batch_id
 
+def get_exec_results(batch_id, access_token, poll_time):
+    url="https://velocity.ag/ncbi-blast/services/v1/blast/blast-execution-batch/"
+    headers = {'accept': 'application/json', 'authorization': 'Bearer ' + access_token}
+    #url_details=requests.get(url+str(batch_id),headers=headers)
+    err_count = 0
+    MAX_ERRS = 3
+    while True:
+        time.sleep(poll_time)
+        response = requests.get(url+str(batch_id),headers=headers)
+        # print(response.text)
+        if response.ok:
+            response_json = response.json()
+            response_set = set(map(lambda x: x["status"], response_json['blastExecutionDetails']))
+            print(response_set)
+            if response_set <= {'Archive', 'Error'}:
+                return response_json
+        else:
+            print(response.text)
+            err_count += 1
+            if err_count > MAX_ERRS:
+                raise ValueError("Error count greater than max errs, stopping")
 
+def get_result(batch_id, access_token, poll_time):
+    url="https://velocity.ag/ncbi-blast/services/v1/blast/result?resultUrl="
+    headers = {'accept': 'application/json', 'authorization': 'Bearer ' + access_token}
+    exec_res=get_exec_results(batch_id, access_token, poll_time)
+    
+    #results = []
+    warnings=[]
+    for result_detail in exec_res['blastExecutionDetails']:
+        if result_detail["status"] == 'Archive':
+            result_url = result_detail['blastFormatResults'][1]['resultUrl']
+            
+            response = requests.get(url+result_url,headers=headers)
+            return response
+            #blast_out = list(filter(lambda x: len(x.rstrip()) > 0, response.text.split("\n")))
+            #results.append(blast_out)
+        else:
+            #warnings.warn("Sequence %s has non-archive status" % result_detail["sequenceName"])
+            warnings.append("Sequence %s has non-archive status:  %s"
+                                        % (result_detail["sequenceName"], result_detail["errorText"]))
+            
+    return warnings
+
+def get_blast_res(batch_id, access_token):
+    try:
+        
+        headers = {'accept': 'application/json', 'authorization': 'Bearer ' + access_token}
+        url='https://velocity.ag/ncbi-blast/services/v1/blast/blast-execution-batch/'+str(batch_id)+'/result/csv'
+        res=requests.get(url, headers=headers)
+        
+        return res
+    except:
+        print("Couldn't find blast results")
+
+
+client_id = '6212df18-f0d8-49e6-a8fc-ea98aae348ad'
+client_secret = 'FsA8Q~DnvHjxtmEKF4K_5vYaJLVpx6j4.0BpTc2K'
+
+# Generating token by calling the function get_token # 
+token=get_token(client_id, client_secret)
+print(token)
+	
+	
+	
+	
+	
+	
 app = Flask(__name__)
 app.secret_key = "hello"
 
