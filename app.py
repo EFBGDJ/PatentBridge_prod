@@ -30,22 +30,19 @@ def index():
 
 @app.route('/name',methods = ['POST','GET'])
 def name():
-	if request.method == 'POST':
-		it = request.form['n2']
-		session['chosen'] = it
-		return  redirect(url_for('display'))
-	n = session.get('user_name',None)
-	if n == 'Fruits':
-		food_items = ['apple','orange','banana']
-		return render_template('item.html',list_new = food_items,user = n)
-	elif n == 'Vegetables':
-		food_items = ['Okra','Potato','Capsicum']
-		return render_template('item.html',list_new = food_items, user = n)
-	elif n == 'Drinks':
-		food_items = ['Orange juice','Lemon juice','Strawberry shake']
-		return render_template('item.html', list_new = food_items, user = n)
-	else:
-		return 'OOPS'
+    if request.method == 'POST':
+        it = request.form['n2']
+        session['chosen'] = it
+        return  redirect(url_for('display'))
+    seq_list = ['Choose all']
+    n = session.get('user_name',None)
+    if(n[0]=='W'):
+        seq_list= wipo_file[wipo_file['patent_number']== n]['Protein'].to_list()
+    else:
+        seq_list=uspto_file[uspto_file['patent_number']==n]['Protein'].to_list()
+    print(seq_list)
+    return render_template('item.html',list_new = seq_list, user = n)
+
 
 @app.route('/display')
 def display():
