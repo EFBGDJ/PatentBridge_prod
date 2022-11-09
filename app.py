@@ -6,6 +6,59 @@ import pandas as pd
 import requests
 from Bio.Seq import Seq
 
+def get_token(client_id, client_secret):
+    # get credentials from a ENV
+    
+    access_url = 'https://login.microsoftonline.com/fcb2b37b-5da0-466b-9b83-0014b67a7c78/oauth2/v2.0/token'
+    # apiURL = creds['KD_SCORE_DATA_URL']
+    # Build the call to Oauth client from creds file
+    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+    
+    payload = {
+                'grant_type' : 'client_credentials',
+                'client_id' : client_id,
+                'client_secret' : client_secret,
+                'scope' : client_id + "/.default"
+                }
+    response = requests.post(access_url, headers=headers,data=payload)
+    # check for a successful response
+    if response.status_code == 200:
+        accessObj = json.loads(response.content)
+        accessToken = accessObj['access_token']
+        return (accessToken)
+    
+    return (None)
+
+def run_vel_blast(sequences, access_token, algo="blastn", collection="nr", evalue=10, nhits=500, word_size=11):
+    url="https://velocity.ag/ncbi-blast/services/v1/blast/"
+    headers = {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + access_token
+    }
+    user=os.getlogin()
+    job=user+"_"+str(datetime.datetime.now()).replace(" ","_")
+    param_str="-evalue "+str(float(evalue))+" -num_alignments "+str(nhits)+" -word_size "+str(word_size)
+    body={ "userId": user,
+           "jobName": job,
+           "jobDescription": job+"_"+collection,
+           "blastCompletionQueue": "pd-genomics-ncbi-blast-completion-out-srgrod",
+           "blastDetails": [ { "algorithm": algo,
+                               "parameters": param_str,
+                               "collectionName": collection, 
+                               "blastFormatters": [ 0,10 ], 
+                               "sequences": sequences } ]}
+    
+    response = requests.post(url, headers=headers, data=json.dumps(body))
+    if response.status_code != 200:
+        print("Couldn't submit Velocity BLAST job. Error code: "+str(response.status_code))
+        return None
+    
+    Obj = json.loads(response.content)
+    batch_id = Obj['blastExecutionBatchId']
+    return batch_id
+
+
 app = Flask(__name__)
 app.secret_key = "hello"
 
