@@ -40,7 +40,7 @@ def run_vel_blast(sequences, access_token, algo="blastn", collection="nr", evalu
         'Content-Type': 'application/json',
         'authorization': 'Bearer ' + access_token
     }
-    user=os.getlogin()
+    user= session$user
     job=user+"_"+str(datetime.datetime.now()).replace(" ","_")
     param_str="-evalue "+str(float(evalue))+" -num_alignments "+str(nhits)+" -word_size "+str(word_size)
     body={ "userId": user,
