@@ -14,14 +14,19 @@ uspto_list = uspto_file['patent_number'].to_list()
 
 @app.route('/',methods = ['POST','GET'])
 def index():
-	list = wipo_list + uspto_list
+    list = wipo_list + uspto_list
+    new_list = []
+    for items in list:
+        if items in new_list:
+            continue
+        else:
+            new_list.append(items)
 	#list = ['Drinks','Vegetables','Fruits']
-	if request.method == 'POST':
-		n = request.form['n1']
-		session['user_name'] = n
-		#return user_name
-		return redirect(url_for('name'))	
-	return render_template('list.html', list = list)
+    if request.method == 'POST':
+        n = request.form['n1']
+        session['user_name'] = n
+        return redirect(url_for('name'))	
+    return render_template('list.html', list = new_list)
 
 @app.route('/name',methods = ['POST','GET'])
 def name():
