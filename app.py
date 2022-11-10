@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,g
 from flask import render_template, url_for,redirect
 from flask import request
 from flask import session
@@ -40,7 +40,7 @@ def run_vel_blast(sequences, access_token, algo="blastn", collection="nr", evalu
         'Content-Type': 'application/json',
         'authorization': 'Bearer ' + access_token
     }
-    user= "EFBDJ"
+    user=os.getlogin()
     job=user+"_"+str(datetime.datetime.now()).replace(" ","_")
     param_str="-evalue "+str(float(evalue))+" -num_alignments "+str(nhits)+" -word_size "+str(word_size)
     body={ "userId": user,
@@ -152,6 +152,7 @@ def index():
 
 @app.route('/name',methods = ['POST','GET'])
 def name():
+    global seq_list
     if request.method == 'POST':
         it = request.form['n2']
         session['chosen'] = it
@@ -163,28 +164,60 @@ def name():
         seq_list=uspto_file[uspto_file['patent_number']==n]['Protein'].to_list()
     seq_list.append("choose all")
  
-    print(seq_list)
     return render_template('item.html',list_new = seq_list, user = n)
 
 
 @app.route('/display')
 def display():
+    global df
     it = session.get('chosen',None)
-    sequence=[{"name":"test",
-               "text":it}]
-    print(sequence)
-    bid=run_vel_blast(sequence,token,algo="blastp",collection="IC_TOXIN-All",
-                      evalue=10, nhits=250, word_size=3)
-    print(bid)
-    res=get_result(bid,token,30)
-    print(res)
-    with open("blas_res5.csv","w") as file:
-        file.write(res.text)
-    res_file=pd.read_csv("blas_res5.csv",header=None) 
-    res_file.to_csv('blas_res5.csv', header=['qacc', 'sacc', 'pident', 'length', 'mismatch', 'gapopen', 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore'], index=False)
-    df = pd.read_csv("blas_res5.csv")      
-    os.remove("blas_res5.csv") 
-    return render_template('results.html', seq = it, column_names = df.columns.values,row_data = list(df.values.tolist()),zip = zip)
+    print(it)
+    if(it == 'choose all'):
+        print(seq_list)
+        fasta_file_string = ",".join(seq_list)
+        print(fasta_file_string)
+        # Replacing the string with new line and > character for FASTA format #
+        fasta_file = fasta_file_string.replace(",","\n>\n")
+        print(fasta_file)
+        # Adding > for the first sequence
+        fasta_file = ">\n" + fasta_file
+        i = 1
+        fasta = ""
+        for line in fasta_file:
+            if(line == ">"):
+                # To give numbers to each sequence #
+                new_line = line + str(i)
+                fasta += new_line
+                i += 1
+            else:
+                fasta += line
+        print(fasta)
+        sequence = [{"name":"test","text": fasta}]
+        bid = run_vel_blast(sequence,token,algo="blastp",collection="IC_TOXIN-All",evalue=10,nhits=250,word_size=3)
+        print(bid)
+        res=get_result(bid,token,30)
+        print(res)
+        with open("blas_res6.csv","w") as file:
+            file.write(res.text)
+        res_file=pd.read_csv("blas_res6.csv", header=None) 
+        res_file.to_csv('blas_res6.csv', header=['qacc', 'sacc', 'pident', 'length', 'mismatch', 'gapopen', 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore'], index=False)
+        df= pd.read_csv("blas_res6.csv") 
+        os.remove('blas_res6.csv')
+    else:
+        sequence=[{"name":"test","text":it}]
+        print(sequence)
+        bid=run_vel_blast(sequence,token,algo="blastp",collection="IC_TOXIN-All",
+        evalue=10, nhits=250, word_size=3)
+        print(bid)
+        res=get_result(bid,token,30)
+        print(res)
+        with open("blas_res5.csv","w") as file:
+            file.write(res.text)
+            res_file=pd.read_csv("blas_res5.csv", header=None) 
+            res_file.to_csv('blas_res5.csv', header=['qacc', 'sacc', 'pident', 'length', 'mismatch', 'gapopen', 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore'], index=False)
+            df= pd.read_csv("blas_res5.csv") 
+            os.remove('blas_res5.csv')
+    return render_template('results.html',seq = it,column_names = df.columns.values,row_data = list(df.values.tolist()),zip = zip)
 
 
 @app.route("/download_sequence", methods= ['GET','POST'])
@@ -193,8 +226,6 @@ def download_sequence():
         if request.form.get('action1') == 'Download Table':
             df.to_csv('file_name.csv')
     return 'Downloaded successfully'
-
-	
 	
 
 if __name__ == '__main__':
