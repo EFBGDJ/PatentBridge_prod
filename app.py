@@ -213,10 +213,10 @@ def display():
         print(res)
         with open("blas_res5.csv","w") as file:
             file.write(res.text)
-            res_file=pd.read_csv("blas_res5.csv", header=None) 
-            res_file.to_csv('blas_res5.csv', header=['qacc', 'sacc', 'pident', 'length', 'mismatch', 'gapopen', 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore'], index=False)
-            df= pd.read_csv("blas_res5.csv") 
-            os.remove('blas_res5.csv')
+        res_file=pd.read_csv("blas_res5.csv", header=None) 
+        res_file.to_csv('blas_res5.csv', header=['qacc', 'sacc', 'pident', 'length', 'mismatch', 'gapopen', 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore'], index=False)
+        df= pd.read_csv("blas_res5.csv") 
+        os.remove('blas_res5.csv')
     return render_template('results.html',seq = it,column_names = df.columns.values,row_data = list(df.values.tolist()),zip = zip)
 
 
