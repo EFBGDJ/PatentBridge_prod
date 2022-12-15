@@ -5,7 +5,9 @@
 <body> 
 <h1> Choose item: <h1>
 <form method = "post">
-<select id = "n1" name = "n1">
+<input list="n1" name="n1">
+      
+<datalist id = "n1">
 {% for x in list %}
 <option style="color: #105583;" value= "{{x}}" SELECTED>{{x}}</option>"
 {% endfor %}
