@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+th,td{
+  height: 70px;
+  padding: 15px;
+  word-wrap:break-word;
+  
+     }
+     
+tr:hover{
+   background-color: coral;
+   }
