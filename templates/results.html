@@ -1,9 +1,29 @@
 <html>
 <head>
+  <link rel="stylesheet" href="./static/basic_style.css">
+  <link rel="stylesheet" href="./static/table_style.css">
+ 
+ 
 <title> result </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
 <body>
+<div class = "header">
+<h1> Welcome to Patent-Bridge </h1>
+<p> An automated tool for extracting patent sequences </p>
+</div>
+ 
+<div id = "navbar">
+<a class="active" href="javascript:void(0)"> Home </a>
+<a href="javascript:console.log('javascript');alert('Please choose patent id first')">Analyze and Annotate </a>
+<a href="javascript:void(0)"> Validate</a>
+</div>
+ 
+ 
+</header>
 Selected Item: {{seq}}
-
+<form method = "post">
 <table style="border: 1px solid black">
     <tr style="border: 1px solid black">
         {% for col in column_names %}
@@ -19,20 +39,9 @@ Selected Item: {{seq}}
     {% endfor %}
 </tr>
 {% endfor %}
-
+ 
 </table>
-
+<button type = "submit"> Download results </button>
 </form>
-
-  </div>
-  </form>
-</div>
-<form action = "/download_sequence" method="POST">
-<div class="download" align = "center">
-<input type="submit" value="Download Table" name="action1"/>
-
-      </div>
-      </form>
-</div>   
 </body>
 </html>
