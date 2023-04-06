@@ -11,6 +11,8 @@ import time
 from Bio.Seq import Seq
 from flask import make_response
 
+app = Flask(__name__)
+app.secret_key = "hello"
 
 def alignment(seq1,seq2):
     file = open("alignment.txt","w")
