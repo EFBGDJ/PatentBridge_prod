@@ -15,307 +15,49 @@
   },
   "files": {
     "requirements.txt": {
-      "checksum": "17dfc947bef72293ac4ebe35b2f51a5c"
+      "checksum": "999c67c78d70245fac0a181c73ef35bd"
     },
     "app.py": {
-      "checksum": "d711fe724e5fc00aa90fb341b07a784f"
+      "checksum": "15c49288f6c6d44a14187b460c7e4249"
     },
     "fetched_uspto_all_final.csv": {
-      "checksum": "82438119da281a005618ca40a09a8115"
+      "checksum": "407e58f4bfd3f319f0297411a5ed8bc5"
     },
     "fetched_wipo_all_final.csv": {
       "checksum": "87239336b3c4c131926aa35490466f83"
     },
-    "new_project\\.git\\COMMIT_EDITMSG": {
-      "checksum": "0e76b636917f10be0d6f4432de4fc29b"
+    "static\\basic_style.css": {
+      "checksum": "2f8bbf500868f5642abf9e57dad817c2"
     },
-    "new_project\\.git\\HEAD": {
-      "checksum": "cf7dd3ce51958c5f13fece957cc417fb"
+    "static\\style.css": {
+      "checksum": "6179d2f387ac43dd4c8cd2f3e9e44bb7"
     },
-    "new_project\\.git\\config": {
-      "checksum": "9f05f5696a3e336a73a2425aaa292b78"
+    "static\\style_item.css": {
+      "checksum": "ddb289bf69a12307dc9212e1f7b10d21"
     },
-    "new_project\\.git\\description": {
-      "checksum": "a0a7c3fff21f2aea3cfa1d0316dd816c"
-    },
-    "new_project\\.git\\hooks\\applypatch-msg.sample": {
-      "checksum": "ce562e08d8098926a3862fc6e7905199"
-    },
-    "new_project\\.git\\hooks\\commit-msg.sample": {
-      "checksum": "579a3c1e12a1e74a98169175fb913012"
-    },
-    "new_project\\.git\\hooks\\fsmonitor-watchman.sample": {
-      "checksum": "a0b2633a2c8e97501610bd3f73da66fc"
-    },
-    "new_project\\.git\\hooks\\post-checkout": {
-      "checksum": "2c55244d9d6cd2e8208263ac9befd326"
-    },
-    "new_project\\.git\\hooks\\post-commit": {
-      "checksum": "fd2127fc0192762cd927e4d061b29b42"
-    },
-    "new_project\\.git\\hooks\\post-merge": {
-      "checksum": "1c75281027dd3a47e6d2133d2c07c2ba"
-    },
-    "new_project\\.git\\hooks\\post-update.sample": {
-      "checksum": "2b7ea5cee3c49ff53d41e00785eb974c"
-    },
-    "new_project\\.git\\hooks\\pre-applypatch.sample": {
-      "checksum": "054f9ffb8bfe04a599751cc757226dda"
-    },
-    "new_project\\.git\\hooks\\pre-commit.sample": {
-      "checksum": "305eadbbcd6f6d2567e033ad12aabbc4"
-    },
-    "new_project\\.git\\hooks\\pre-merge-commit.sample": {
-      "checksum": "39cb268e2a85d436b9eb6f47614c3cbc"
-    },
-    "new_project\\.git\\hooks\\pre-push": {
-      "checksum": "43e1c8572c8fefa9e3e217e08afda6dd"
-    },
-    "new_project\\.git\\hooks\\pre-push.sample": {
-      "checksum": "2c642152299a94e05ea26eae11993b13"
-    },
-    "new_project\\.git\\hooks\\pre-rebase.sample": {
-      "checksum": "56e45f2bcbc8226d2b4200f7c46371bf"
-    },
-    "new_project\\.git\\hooks\\pre-receive.sample": {
-      "checksum": "2ad18ec82c20af7b5926ed9cea6aeedd"
-    },
-    "new_project\\.git\\hooks\\prepare-commit-msg.sample": {
-      "checksum": "2b5c047bdb474555e1787db32b2d2fc5"
-    },
-    "new_project\\.git\\hooks\\push-to-checkout.sample": {
-      "checksum": "c7ab00c7784efeadad3ae9b228d4b4db"
-    },
-    "new_project\\.git\\hooks\\update.sample": {
-      "checksum": "647ae13c682f7827c22f5fc08a03674e"
-    },
-    "new_project\\.git\\index": {
-      "checksum": "f0c15b092b7581f518bd1db93bef55d8"
-    },
-    "new_project\\.git\\info\\exclude": {
-      "checksum": "036208b4a1ab4a235d75c181e685e5a3"
-    },
-    "new_project\\.git\\lfs\\cache\\locks\\refs\\heads\\main\\verifiable": {
-      "checksum": "91188ef767ae3a3a42e92f1706f161d0"
-    },
-    "new_project\\.git\\logs\\HEAD": {
-      "checksum": "4ae46ac5a9aab2660d9223bf364c8a0b"
-    },
-    "new_project\\.git\\logs\\refs\\heads\\main": {
-      "checksum": "4ae46ac5a9aab2660d9223bf364c8a0b"
-    },
-    "new_project\\.git\\logs\\refs\\remotes\\origin\\HEAD": {
-      "checksum": "973573ed67dc96e1071572a8e99f9961"
-    },
-    "new_project\\.git\\logs\\refs\\remotes\\origin\\main": {
-      "checksum": "87e15cdc4ffa784bf876857e45736b39"
-    },
-    "new_project\\.git\\objects\\86\\503180d5933784e31d6e6e79f704fd4894f582": {
-      "checksum": "712598c9ce3dbe61b36c0a6970433b16"
-    },
-    "new_project\\.git\\objects\\8d\\57f9d343185ba0453379a98981b9626ca8b3f1": {
-      "checksum": "417be4926d9ad076a4ddd3b532de74de"
-    },
-    "new_project\\.git\\objects\\94\\a7ae519610152c25082e769ad17cbea56155c4": {
-      "checksum": "b0871bc9388d0fdff65b598a98353957"
-    },
-    "new_project\\.git\\objects\\b0\\1107a053cd69f4fabdb382a75bc7c20f89b893": {
-      "checksum": "5de9e26a9216fe4ce8bcaec77797e69b"
-    },
-    "new_project\\.git\\objects\\pack\\pack-3f2fe4b85fce917b54d491f743c7638c2fbbaaf8.idx": {
-      "checksum": "298922a8f4a191dcfcdddad65a976ea9"
-    },
-    "new_project\\.git\\objects\\pack\\pack-3f2fe4b85fce917b54d491f743c7638c2fbbaaf8.pack": {
-      "checksum": "6d478e6faa08c27d662506c629175715"
-    },
-    "new_project\\.git\\packed-refs": {
-      "checksum": "c468325ccbd10e9cb932589edc32ef6b"
-    },
-    "new_project\\.git\\refs\\heads\\main": {
-      "checksum": "32563fa03f2dc2b7c4eef5f77b7ea21e"
-    },
-    "new_project\\.git\\refs\\remotes\\origin\\HEAD": {
-      "checksum": "98b16e0b650190870f1b40bc8f4aec4e"
-    },
-    "new_project\\.git\\refs\\remotes\\origin\\main": {
-      "checksum": "32563fa03f2dc2b7c4eef5f77b7ea21e"
-    },
-    "new_project\\.gitattributes": {
-      "checksum": "6d9ad4e658d1f0edc8557358b9c9e6dd"
-    },
-    "new_project\\app.py": {
-      "checksum": "d05b671fdc1b3734a5913e7f8ef1311b"
-    },
-    "new_project\\fetched_uspto_all_final.csv": {
-      "checksum": "82438119da281a005618ca40a09a8115"
-    },
-    "new_project\\fetched_wipo_all_final.csv": {
-      "checksum": "87239336b3c4c131926aa35490466f83"
-    },
-    "new_project\\manifest.json": {
-      "checksum": "efa6fa1f705bc90591cb6560c9a5d4b6"
-    },
-    "new_project\\requirements.txt": {
-      "checksum": "5c0c1e164f8cc296c27c526f86ddf27c"
-    },
-    "new_project\\templates\\item.html": {
-      "checksum": "913721cf8b840225ec67452ecf5b9c70"
-    },
-    "new_project\\templates\\list.html": {
-      "checksum": "822e51617f28c3fb92471a3ef659b44c"
-    },
-    "patent\\.git\\COMMIT_EDITMSG": {
-      "checksum": "0e76b636917f10be0d6f4432de4fc29b"
-    },
-    "patent\\.git\\FETCH_HEAD": {
-      "checksum": "55b805cec84f782cb8f14ceabe6dcdbb"
-    },
-    "patent\\.git\\HEAD": {
-      "checksum": "cf7dd3ce51958c5f13fece957cc417fb"
-    },
-    "patent\\.git\\config": {
-      "checksum": "caf3ad0fbf37ba0307df4bd054fccff6"
-    },
-    "patent\\.git\\description": {
-      "checksum": "a0a7c3fff21f2aea3cfa1d0316dd816c"
-    },
-    "patent\\.git\\hooks\\applypatch-msg.sample": {
-      "checksum": "ce562e08d8098926a3862fc6e7905199"
-    },
-    "patent\\.git\\hooks\\commit-msg.sample": {
-      "checksum": "579a3c1e12a1e74a98169175fb913012"
-    },
-    "patent\\.git\\hooks\\fsmonitor-watchman.sample": {
-      "checksum": "a0b2633a2c8e97501610bd3f73da66fc"
-    },
-    "patent\\.git\\hooks\\post-checkout": {
-      "checksum": "2c55244d9d6cd2e8208263ac9befd326"
-    },
-    "patent\\.git\\hooks\\post-commit": {
-      "checksum": "fd2127fc0192762cd927e4d061b29b42"
-    },
-    "patent\\.git\\hooks\\post-merge": {
-      "checksum": "1c75281027dd3a47e6d2133d2c07c2ba"
-    },
-    "patent\\.git\\hooks\\post-update.sample": {
-      "checksum": "2b7ea5cee3c49ff53d41e00785eb974c"
-    },
-    "patent\\.git\\hooks\\pre-applypatch.sample": {
-      "checksum": "054f9ffb8bfe04a599751cc757226dda"
-    },
-    "patent\\.git\\hooks\\pre-commit.sample": {
-      "checksum": "305eadbbcd6f6d2567e033ad12aabbc4"
-    },
-    "patent\\.git\\hooks\\pre-merge-commit.sample": {
-      "checksum": "39cb268e2a85d436b9eb6f47614c3cbc"
-    },
-    "patent\\.git\\hooks\\pre-push": {
-      "checksum": "43e1c8572c8fefa9e3e217e08afda6dd"
-    },
-    "patent\\.git\\hooks\\pre-push.sample": {
-      "checksum": "2c642152299a94e05ea26eae11993b13"
-    },
-    "patent\\.git\\hooks\\pre-rebase.sample": {
-      "checksum": "56e45f2bcbc8226d2b4200f7c46371bf"
-    },
-    "patent\\.git\\hooks\\pre-receive.sample": {
-      "checksum": "2ad18ec82c20af7b5926ed9cea6aeedd"
-    },
-    "patent\\.git\\hooks\\prepare-commit-msg.sample": {
-      "checksum": "2b5c047bdb474555e1787db32b2d2fc5"
-    },
-    "patent\\.git\\hooks\\push-to-checkout.sample": {
-      "checksum": "c7ab00c7784efeadad3ae9b228d4b4db"
-    },
-    "patent\\.git\\hooks\\update.sample": {
-      "checksum": "647ae13c682f7827c22f5fc08a03674e"
-    },
-    "patent\\.git\\index": {
-      "checksum": "9211220902568c145f0773aa7e0622de"
-    },
-    "patent\\.git\\info\\exclude": {
-      "checksum": "036208b4a1ab4a235d75c181e685e5a3"
-    },
-    "patent\\.git\\lfs\\cache\\locks\\refs\\heads\\main\\verifiable": {
-      "checksum": "91188ef767ae3a3a42e92f1706f161d0"
-    },
-    "patent\\.git\\lfs\\objects\\db\\a9\\dba9c6ca01dc61e8c77eb6eaeefb37aef9b15ce1a1cbcb713f5afb37b4d457c9": {
-      "checksum": "87239336b3c4c131926aa35490466f83"
-    },
-    "patent\\.git\\lfs\\objects\\f6\\d9\\f6d9056c3309fce4cfb95214c2f3ea2c2e3a1434562f3f0e34336dcb851de289": {
-      "checksum": "82438119da281a005618ca40a09a8115"
-    },
-    "patent\\.git\\logs\\HEAD": {
-      "checksum": "2e58899808fa7a481d8a369ec816f0db"
-    },
-    "patent\\.git\\logs\\refs\\heads\\main": {
-      "checksum": "2e58899808fa7a481d8a369ec816f0db"
-    },
-    "patent\\.git\\logs\\refs\\remotes\\origin\\HEAD": {
-      "checksum": "4e64a92834bf69974df4dc83479d98e4"
-    },
-    "patent\\.git\\logs\\refs\\remotes\\origin\\main": {
-      "checksum": "7b1b7f339c3c9ee36013f466987321bf"
-    },
-    "patent\\.git\\objects\\18\\d1e99d26bd9f4a92cc6577cb1b2e01e499cdd2": {
-      "checksum": "b38a6c626fef58002e27b1ec4f5b5ea5"
-    },
-    "patent\\.git\\objects\\82\\d2ce50111ae4729fc2ba2762c000a649435870": {
-      "checksum": "c6b7c430e89f0a02783d56f52ee14cb8"
-    },
-    "patent\\.git\\objects\\ac\\e23c533aafd9a599d0b891f018734e5eb1cd39": {
-      "checksum": "bbc6b60df9e145fef09ef326f9103af2"
-    },
-    "patent\\.git\\objects\\b8\\9a07066d80aa1a55789ee31ebcf93336aacdbf": {
-      "checksum": "d66568d97861541769ff1b61a93acd62"
-    },
-    "patent\\.git\\objects\\pack\\pack-7c980c43d774e77d6a521842060e0c2faa444fe6.idx": {
-      "checksum": "ce3794b736c908cef46192492a031e95"
-    },
-    "patent\\.git\\objects\\pack\\pack-7c980c43d774e77d6a521842060e0c2faa444fe6.pack": {
-      "checksum": "76985a3fb7814cffa6b1593fcc6ef257"
-    },
-    "patent\\.git\\packed-refs": {
-      "checksum": "f8f9bdf659969f4e6d029c6920fc4943"
-    },
-    "patent\\.git\\refs\\heads\\main": {
-      "checksum": "4d826b651d36e7732dd6f0f836dbe723"
-    },
-    "patent\\.git\\refs\\remotes\\origin\\HEAD": {
-      "checksum": "98b16e0b650190870f1b40bc8f4aec4e"
-    },
-    "patent\\.git\\refs\\remotes\\origin\\main": {
-      "checksum": "4d826b651d36e7732dd6f0f836dbe723"
-    },
-    "patent\\.gitattributes": {
-      "checksum": "d8eeab274152ed7457ebd5f1f0c465ea"
-    },
-    "patent\\app.py": {
-      "checksum": "435c1955591634e11dfd490aff728056"
-    },
-    "patent\\fetched_uspto_all_final.csv": {
-      "checksum": "82438119da281a005618ca40a09a8115"
-    },
-    "patent\\fetched_wipo_all_final.csv": {
-      "checksum": "87239336b3c4c131926aa35490466f83"
-    },
-    "patent\\manifest.json": {
-      "checksum": "79417c3686461dabed2250e030c013ba"
-    },
-    "patent\\requirements.txt": {
-      "checksum": "cabb060f113772378f1a828d92559f65"
-    },
-    "patent\\templates\\Index.html": {
-      "checksum": "d8e17a5931e86dd99db5106a9e4b06ea"
+    "static\\table_style.css": {
+      "checksum": "c25456421ed05ecc5d6091a1b84eea51"
     },
     "templates\\item.html": {
-      "checksum": "0daeb7d19216adaa30c8359cf1aebb48"
+      "checksum": "913721cf8b840225ec67452ecf5b9c70"
     },
     "templates\\list.html": {
-      "checksum": "822e51617f28c3fb92471a3ef659b44c"
+      "checksum": "ee10b1ef874c0a9d4c03e4c89691ef3b"
     },
     "templates\\results.html": {
-      "checksum": "f2c1dd7359d27d86f01c1d047258d34d"
+      "checksum": "8d9c916093bc4d2b45f01eaa45cc81ee"
+    },
+    "templates\\sequence.html": {
+      "checksum": "459585708c30fb82ff03cc03abd7e2f3"
+    },
+    "templates\\translated_sequences.html": {
+      "checksum": "699da90daf5c61fd83ed9165d87d54d1"
+    },
+    "templates\\validation.html": {
+      "checksum": "8067d65f4281f1f6bfd2e08f6b8655d9"
+    },
+    "templates\\validation_results.html": {
+      "checksum": "18de60c3954750fe2b60ef511a9c4386"
     }
   }
 }
