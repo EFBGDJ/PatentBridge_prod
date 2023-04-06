@@ -1,0 +1,38 @@
+<html>
+<head>
+ <link rel="stylesheet" href="./static/basic_style.css">
+ <link rel="stylesheet" href="./static/table_style.css">
+ 
+<title> loom </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<div class = "header">
+<h1> Welcome to Patent-Bridge </h1>
+<p> An automated tool for extracting patent sequences </p>
+</div>
+ 
+<div id = "navbar">
+<a class="active" href="javascript:void(0)"> Home </a>
+<a href="javascript:console.log('javascript');alert('Please choose patent id first')">Analyze and Annotate </a>
+<a href="javascript:void(0)"> Validate</a>
+</div>
+ 
+ 
+</header>
+Selected Item: {{user}}
+<br>
+ 
+<form method = "post">
+<table  style="border: 1px solid black">
+    {% for ele in sequence %}
+    <tr  style="border: 1px solid black">
+    <td> {{ele}} </td>
+    {% endfor %}
+    </tr>
+    </table>
+    
+<input type="submit" value="Download sequences" name="action1"/>
+<input type="submit" value="Translate" name="action2" />
+</form>
