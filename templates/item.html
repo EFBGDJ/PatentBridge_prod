@@ -1,11 +1,29 @@
 <html>
 <head>
+  <link rel="stylesheet" href="./static/style_item.css">
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
 <title> boom </title>
-
+ 
 <body>
-Selected Item: {{user}}
+<div class = "header">
+<h1> Welcome to Patent-Bridge </h1>
+<p> An automated tool for extracting patent sequences </p>
+</div>
+ 
+<div id = "navbar">
+<a href="javascript:void(0)"> Home </a>
+<a class="active" href="javascript:void(0)"> Analyze and Annotate </a>
+<a href="javascript:void(0)"> Validate</a>
+</div>
+ 
+<h3> Selected Patent ID: {{user}} </h3>
 <br>
 <form method = "post">
+ 
+<h3> Choose Patent Sequence: </h3>
 <select name = "n2">
 {% for x in list_new %}
 <option style="color: #105583;" value= "{{x}}" SELECTED>{{x}}</option>"
@@ -13,6 +31,6 @@ Selected Item: {{user}}
 </select>
 <button type = "submit"> Enter </button>
 </form>
-
+ 
 </body>
 </html>
