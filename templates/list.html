@@ -1,12 +1,35 @@
 <html>
 <head>
+  <link rel="stylesheet" href="./static/style.css">
+ 
 <title> we </title>
-
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
 <body> 
-<h1> Choose item: <h1>
+ 
+<div class = "header">
+<h1> Welcome to Patent-Bridge </h1>
+<p> An automated tool for extracting patent sequences </p>
+</div>
+ 
+<div id = "navbar">
+<a class="active" href="javascript:void(0)"> Home </a>
+<a href="javascript:console.log('javascript');alert('Please choose patent id first')">Analyze and Annotate </a>
+<a href="javascript:void(0)"> Validate</a>
+</div>
+ 
+ 
+</header>
+<div class = "parent">
+<div class = "child">
+<h3> Choose Patent ID: </h3></div>
 <form method = "post">
-<input list="n1" name="n1">
-      
+<div class="child2">
+<input list="n1" name="n1" >
+</div>
+ 
+</div>    
 <datalist id = "n1">
 {% for x in list %}
 <option style="color: #105583;" value= "{{x}}" SELECTED>{{x}}</option>"
